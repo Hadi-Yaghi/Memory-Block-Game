@@ -49,6 +49,7 @@ function flipBlock(selectedBlock){
         //stop clicking function
     stopClicking();
     //Check Matched Block Fucntion
+    checkMatchedBlock(allFlippedBlocks[0],allFlippedBlocks[1]);
     }
     
 }
@@ -60,6 +61,24 @@ function stopClicking(){
         //Remove class No  clicking After The duration
         blocksContainer.classList.remove('no-clicking');
     },duration)
+}
+//Check Matched Block
+function checkMatchedBlock(firstBlock,SecondBlock){
+    let triesElement = document.querySelector('.tries span');
+    if(firstBlock.dataset.technology ===SecondBlock.dataset.technology){
+        firstBlock.classList.remove('is-flipped');
+        SecondBlock.classList.remove('is-flipped');
+
+        firstBlock.classList.add('has-match');
+        SecondBlock.classList.add('has-match');
+    }else{
+        triesElement.innerHTML =  parseInt(triesElement.innerHTML) + 1;
+        setTimeout(() => {
+            firstBlock.classList.remove('is-flipped');
+        SecondBlock.classList.remove('is-flipped');
+        }, duration);
+        
+    }
 }
 //shuffle function
 function shuffle(array){

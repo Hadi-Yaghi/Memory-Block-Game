@@ -31,13 +31,16 @@ body{
     flex-wrap: wrap;
     margin: 20px auto;
 }
+.memory-game-blocks.no-clicking{
+    pointer-events: none;
+}
 .memory-game-blocks .game-block{
     height: 200px;
     transition: transform .5s;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
-    flex: 1 0 200px;
+    flex: 0 0 200px;
     margin: 0 10px 20px;
 }
 
@@ -69,7 +72,8 @@ body{
     backface-visibility: hidden;
     border: 5px solid #2196f3;
 }
-.memory-game-blocks .game-block .is-flipped{
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match{
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
