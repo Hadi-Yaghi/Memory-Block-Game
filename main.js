@@ -22,9 +22,9 @@ let blocksContainer = document.querySelector(".memory-game-blocks");
 let blocks = Array.from(blocksContainer.children);
 
 let orderRange  = [...Array(blocks.length).keys()];
-console.log(orderRange);
+
 shuffle(orderRange);
-console.log(orderRange);
+
 
 //Add order css property to Game Blocks
 blocks.forEach((block,index) =>{
@@ -46,11 +46,20 @@ function flipBlock(selectedBlock){
     let allFlippedBlocks =  blocks.filter(flippedBloc => flippedBloc.classList.contains('is-flipped'));
     //If Theres Two Selected Blocks
     if(allFlippedBlocks.length==2){
-        console.log("2 selected");
-    }
-    //stop clicking function
-
+        //stop clicking function
+    stopClicking();
     //Check Matched Block Fucntion
+    }
+    
+}
+//Stop Clicking Function
+function stopClicking(){
+    //Add class NO clicking on main conatianer
+    blocksContainer.classList.add('no-clicking');
+    setTimeout(() =>{
+        //Remove class No  clicking After The duration
+        blocksContainer.classList.remove('no-clicking');
+    },duration)
 }
 //shuffle function
 function shuffle(array){
