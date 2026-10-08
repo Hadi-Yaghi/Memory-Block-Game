@@ -30,7 +30,28 @@ console.log(orderRange);
 blocks.forEach((block,index) =>{
     block.style.order= orderRange[index];
     
+    // Add click event
+    block.addEventListener('click',function(){
+        //Triger The 
+        flipBlock(block);
+    })
 });
+//Flip Block Function
+function flipBlock(selectedBlock){
+    // Add class is-flipped
+    selectedBlock.classList.add('is-flipped');
+
+    //collect All flipped card
+    
+    let allFlippedBlocks =  blocks.filter(flippedBloc => flippedBloc.classList.contains('is-flipped'));
+    //If Theres Two Selected Blocks
+    if(allFlippedBlocks.length==2){
+        console.log("2 selected");
+    }
+    //stop clicking function
+
+    //Check Matched Block Fucntion
+}
 //shuffle function
 function shuffle(array){
     let current = array.length,
